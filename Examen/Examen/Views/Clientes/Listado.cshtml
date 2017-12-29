@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Examen.Models.Cliente>
+@{
+    ViewBag.Title = "Listado";
+}
+
+<h2>Listado de Clientes</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <th>Id</th>
+    <th>Rut</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Dirección</th>
+    <th>Tipo de Cliente</th>
+    <th>Ver</th>
+    </thead>
+    <tbody>
+        @foreach (Examen.Models.Cliente c in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => c.Id)</td>
+                <td>@Html.DisplayFor(m => c.Rut)</td>
+                <td>@Html.DisplayFor(m => c.Nombre)</td>
+                <td>@Html.DisplayFor(m => c.Apellidos)</td>
+                <td>@Html.DisplayFor(m => c.Direccion)</td>
+                <td>@Html.DisplayFor(m => c.TipoCliente)</td>
+                <td>@Html.ActionLink("Ver", "Ficha", new { Id = c.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
